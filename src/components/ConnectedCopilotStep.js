@@ -21,6 +21,9 @@ class ConnectedCopilotStep extends Component<Props> {
     if (this.props.active) {
       this.register();
     }
+    if (this.props.additionalSteps) {
+      this.registerAdditional();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,6 +44,20 @@ class ConnectedCopilotStep extends Component<Props> {
     this.wrapper.setNativeProps(obj);
   }
 
+  registerAdditional() {
+    for (const step of this.props.additionalSteps) {
+      this.props._copilot.registerStep({
+        name: step.name,
+        text: step.text,
+        order: step.order,
+        target: this,
+        wrapper: this.wrapper,
+        showNextButton: step.showNextButton,
+        commandText: step.commandText,
+      });
+    }
+  }
+
   register() {
     this.props._copilot.registerStep({
       name: this.props.name,
@@ -48,6 +65,8 @@ class ConnectedCopilotStep extends Component<Props> {
       order: this.props.order,
       target: this,
       wrapper: this.wrapper,
+      showNextButton: this.props.showNextButton,
+      commandText: this.props.commandText,
     });
   }
 
@@ -85,6 +104,11 @@ class ConnectedCopilotStep extends Component<Props> {
     const copilot = {
       ref: (wrapper) => { this.wrapper = wrapper; },
       onLayout: () => { }, // Android hack
+      nextStep: () => this.props._copilot.nextStep(),
+      getCurrentName: () => {
+        step = this.props._copilot.getCurrentStep()
+        return step ? step.name : null;
+      },
     };
 
     return React.cloneElement(this.props.children, { copilot });

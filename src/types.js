@@ -5,12 +5,15 @@ export type Step = {
   visible: boolean,
   target: React$Element,
   wrapper: React$Element,
+  showNextButton: boolean,
+  commandText: string,
 };
 
 export type CopilotContext = {
   registerStep: (Step) => void,
   unregisterStep: (name: string) => void,
   getCurrentStep: () => Step,
+  nextStep: () => void,
 }
 
 export type valueXY = {

@@ -55,6 +55,7 @@ const copilot = ({
             registerStep: this.registerStep,
             unregisterStep: this.unregisterStep,
             getCurrentStep: () => this.state.currentStep,
+            nextStep: () => this.next(),
           },
         };
       }

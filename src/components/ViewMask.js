@@ -74,7 +74,7 @@ class ViewMask extends Component<Props, State> {
     );
 
     return (
-      <View style={this.props.style}>
+      <View style={this.props.style} pointerEvents="none">
         <Animated.View
           style={[
             styles.overlayRectangle,

@@ -27,36 +27,29 @@ const Tooltip = ({
   currentStep,
   labels,
 }: Props) => (
-  <View>
-    <View style={styles.tooltipContainer}>
-      <Text testID="stepDescription" style={styles.tooltipText}>{currentStep.text}</Text>
-    </View>
-    <View style={[styles.bottomBar]}>
-      {
-        !isLastStep ?
-          <TouchableOpacity onPress={handleStop}>
-            <Button>{labels.skip || 'Skip'}</Button>
+    <View>
+      <View style={styles.tooltipContainer}>
+        <Text testID="stepDescription" style={{ color: '#8C8C8C', textAlign: 'center' }}>
+          {currentStep.text}
+        </Text>
+        {currentStep.commandText &&
+          <Text style={{ color: '#D74545', fontWeight: 'bold', textAlign: 'center', marginVertical: 5 }}>{currentStep.commandText}</Text>
+        }
+      </View>
+      <View style={[styles.bottomBar]}>
+        {currentStep.showNextButton &&
+          <TouchableOpacity onPress={isLastStep ? handleStop : handleNext} style={{
+            marginVertical: 10,
+            paddingHorizontal: 20,
+            paddingVertical: 5,
+            backgroundColor: '#D74545',
+            borderRadius: 20,
+          }}>
+            <Text style={{ color: 'white', fontWeight: 'bold' }}>{isLastStep ? 'Done' : 'Next'}</Text>
           </TouchableOpacity>
-          : null
-      }
-      {
-        !isFirstStep ?
-          <TouchableOpacity onPress={handlePrev}>
-            <Button>{labels.previous || 'Previous'}</Button>
-          </TouchableOpacity>
-          : null
-      }
-      {
-        !isLastStep ?
-          <TouchableOpacity onPress={handleNext}>
-            <Button>{labels.next || 'Next'}</Button>
-          </TouchableOpacity> :
-          <TouchableOpacity onPress={handleStop}>
-            <Button>{labels.finish || 'Finish'}</Button>
-          </TouchableOpacity>
-      }
-    </View>
-  </View>
-);
+        }
+      </View>
+    </View >
+  );
 
 export default Tooltip;

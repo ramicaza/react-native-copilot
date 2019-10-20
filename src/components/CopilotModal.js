@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Animated, Easing, View, NativeModules, Modal, StatusBar, Platform } from 'react-native';
+import { Animated, Easing, View, NativeModules, StatusBar, Platform, Modal } from 'react-native';
 import Tooltip from './Tooltip';
 import StepNumber from './StepNumber';
 import styles, { MARGIN, ARROW_SIZE, STEP_NUMBER_DIAMETER, STEP_NUMBER_RADIUS } from './style';
@@ -39,7 +39,7 @@ type State = {
   },
 };
 
-const noop = () => {};
+const noop = () => { };
 
 class CopilotModal extends Component<Props, State> {
   static defaultProps = {
@@ -290,21 +290,24 @@ class CopilotModal extends Component<Props, State> {
     const contentVisible = this.state.layout && containerVisible;
 
     return (
-      <Modal
-        animationType="none"
-        visible={containerVisible}
-        onRequestClose={noop}
-        transparent
-        supportedOrientations={['portrait', 'landscape']}
+      // <Modal
+      //   animationType="none"
+      //   visible={containerVisible}
+      //   onRequestClose={noop}
+      //   transparent
+      //   supportedOrientations={['portrait', 'landscape']}
+      // >
+      <View
+        pointerEvents="box-none"
+        style={styles.container}
+        onLayout={this.handleLayoutChange}
       >
-        <View
-          style={styles.container}
-          onLayout={this.handleLayoutChange}
-        >
-          {contentVisible && this.renderMask()}
-          {contentVisible && this.renderTooltip()}
-        </View>
-      </Modal>
+        {contentVisible && this.renderMask()}
+        {contentVisible && this.renderTooltip()}
+        {/* <TouchableOpacity style={{marginTop: 300}}><Text>nigigaasdfkjsdjfads;jfdsaijfdsifpdsiufspdiufhpi</Text></TouchableOpacity> */}
+
+      </View>
+      // </Modal>
     );
   }
 }
