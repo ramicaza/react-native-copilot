@@ -1,24 +1,29 @@
 {
+  "_args": [
+    [
+      "git+https://github.com/ramicaza/react-native-copilot.git",
+      "/Users/nico/Desktop/FlashPlays/App"
+    ]
+  ],
   "_from": "git+https://github.com/ramicaza/react-native-copilot.git",
-  "_id": "react-native-copilot@2.4.6",
+  "_id": "react-native-copilot@git+https://github.com/ramicaza/react-native-copilot.git#39394722bcaf95ca5860019c50ccc612ef4ff771",
   "_inBundle": false,
   "_integrity": "",
   "_location": "/react-native-copilot",
   "_phantomChildren": {},
   "_requested": {
     "type": "git",
-    "raw": "https://github.com/ramicaza/react-native-copilot.git",
-    "rawSpec": "https://github.com/ramicaza/react-native-copilot.git",
+    "raw": "git+https://github.com/ramicaza/react-native-copilot.git",
+    "rawSpec": "git+https://github.com/ramicaza/react-native-copilot.git",
     "saveSpec": "git+https://github.com/ramicaza/react-native-copilot.git",
     "fetchSpec": "https://github.com/ramicaza/react-native-copilot.git",
     "gitCommittish": null
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/ramicaza/react-native-copilot.git#4fee6f85641984ae54f4f58e1769e405c5c2b7cb",
-  "_spec": "https://github.com/ramicaza/react-native-copilot.git",
+  "_resolved": "git+https://github.com/ramicaza/react-native-copilot.git#39394722bcaf95ca5860019c50ccc612ef4ff771",
+  "_spec": "git+https://github.com/ramicaza/react-native-copilot.git",
   "_where": "/Users/nico/Desktop/FlashPlays/App",
   "author": {
     "name": "Mohamad Mohebifar",

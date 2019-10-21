@@ -109,9 +109,8 @@ class ConnectedCopilotStep extends Component<Props> {
         step = this.props._copilot.getCurrentStep()
         return step ? step.name : null;
       },
-      start: () => this.props._copilot.start()
+      startWalkthrough: () => this.props._copilot.start()
     };
-
     return React.cloneElement(this.props.children, { copilot });
   }
 }
