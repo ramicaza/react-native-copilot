@@ -68,7 +68,7 @@ class CopilotModal extends Component<Props, State> {
     containerVisible: false,
   };
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     if (this.props.visible === true && nextProps.visible === false) {
       this.reset();
     }

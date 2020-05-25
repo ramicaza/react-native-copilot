@@ -32,7 +32,7 @@ class ViewMask extends Component<Props, State> {
     position: new Animated.ValueXY({ x: 0, y: 0 }),
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.position !== nextProps.position || this.props.size !== nextProps.size) {
       this.animate(nextProps.size, nextProps.position);
     }
